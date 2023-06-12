@@ -5,7 +5,9 @@ import Button from './components/ui/Button/Button'
 function App() {
   return (
     <div className="App">
-        <Button><img src='/img/9165532_ok_hand_icon.png' alt='Ok'/></Button>
+        <Button onClick={(unParamDeLEnfant)=>{
+            console.log('fonction evnoyee par le parent', unParamDeLEnfant)
+        }}><img src='/img/9165532_ok_hand_icon.png' alt='Ok'/></Button>
         <Button>Cancel</Button>
     </div>
   );
