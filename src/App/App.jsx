@@ -5,7 +5,6 @@ import Button from './components/ui/Button/Button'
 function App() {
   return (
     <div className="App">
-      DEMAT Breizh
       <Button></Button>
     </div>
   );
