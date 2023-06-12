@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
         <Button><img src='/img/9165532_ok_hand_icon.png' alt='Ok'/></Button>
-        <Button text="Cancel"></Button>
+        <Button>Cancel</Button>
     </div>
   );
 }
