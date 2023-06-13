@@ -31,6 +31,9 @@ const MemeForm = (props) => {
           setstate({...state, imageId:Number(evt.target.value)})
         }}>
           <option value="-1">No image</option>
+          {props.images.map((e, i) => {
+            return <option key={`select-image-${i}`} value={e.id}>{e.titre}</option>
+          })}
         </select>
         <hr />
         <label htmlFor="text">
@@ -100,7 +103,9 @@ const MemeForm = (props) => {
   );
 };
 
-MemeForm.propTypes = {};
+MemeForm.propTypes = {
+  images: PropTypes.array.isRequired
+};
 
 MemeForm.defaultProps = {};
 

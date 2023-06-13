@@ -1,36 +1,29 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
-import Button from './components/ui/Button/Button'
+import React from 'react'
+import FlexV3Grow from './components/layout/FlexV3Grow/FlexV3Grow'
+import Header from './components/ui/Header/Header'
+import NavBar from './components/ui/NavBar/NavBar'
+import FlexH1Grow from './components/layout/FlexH1Grow/FlexH1Grow'
+import { MemeSVGViewer, emptyMeme } from 'orsys-tjs-meme'
+import Footer from './components/ui/Footer/Footer'
+import MemeForm from './components/MemeForm/MemeForm'
+import datas from './db/db.json'
 
-function App() {
-  const [counter, setcounter] = useState(0)
+const App = () => {
+  console.log(datas)
 
-  useEffect(()=>{
-      console.log('Valeur post setCounter', counter)
-      return() => {
-        //console.log('cleanup') //effect
-      }
-  }, [counter])
-
-  useEffect(() => {
-      setcounter(1)
-  }, [])
-
-  console.log('rendu');
   return (
     <div className="App">
-      Voici la valeur de counter : {counter}
-      <hr/>
-      <Button className="error" onClick={()=>{
-        setcounter(counter-1)
-        console.log(counter)
-      }}>-1</Button>
-      <Button onClick={()=>{
-        setcounter(counter+1)
-        console.log(counter)
-      }}>+1</Button>
+      <FlexV3Grow>
+          <Header/>
+          <NavBar/>
+          <FlexH1Grow>
+            <MemeSVGViewer meme={emptyMeme} image={undefined} basePath=''></MemeSVGViewer>
+            <MemeForm images={datas.images}/>
+          </FlexH1Grow>
+          <Footer/>
+      </FlexV3Grow>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
