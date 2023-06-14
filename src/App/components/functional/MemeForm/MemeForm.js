@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useSelector, useDispatch } from 'react';
 import PropTypes from 'prop-types';
 import style from './MemeForm.module.css';
 import { emptyMeme } from 'orsys-tjs-meme'
 import Button from '../../ui/Button/Button';
-// import { connect } from 'react-redux';
+import { update } from '../../../store/currentSlice';
+
 const MemeForm = (props) => {
   return (
     <div className={style.MemeForm} data-testid="MemeForm">
@@ -139,12 +140,17 @@ MemeForm.defaultProps = {};
 export default MemeForm;
 
 export const MemeFormStoredConnected = (props) => {
-
+  const storeProps = useSelector(storeState => {
+    return { images: storeState.ressources.images, current: storeState.current }
+  })
+  const storeDispatch=useDispatch()
   return (
     <MemeForm
-      images={}
-      current={}
-      onMemeChange={}
+     {...props}
+     {...storeProps}
+      onMemeChange={ (meme)=>{
+        storeDispatch(update(meme))
+      }}
     />)
 }
 
