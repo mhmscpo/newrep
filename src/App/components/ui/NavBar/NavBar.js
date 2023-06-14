@@ -4,17 +4,26 @@ import style from './NavBar.module.css'
 import '../../../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../../../../../node_modules/bootstrap/dist/js/bootstrap.js'
 import { Navbar, Container, Nav } from 'react-bootstrap'
+import {LinkContainer} from 'react-router-bootstrap'
 
 const NavBar = (props) => {
   return (
     <div className={style.NavBar} data-testid="NavBar">
       <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          </LinkContainer>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <LinkContainer to="/thumbnail">
+              <Nav.Link href="/thumbnail">Thumbnail</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/meme">
+              <Nav.Link href="/meme">New</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/meme/1">
+              <Nav.Link href="/meme/1">Edit id:1</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Container>
       </Navbar>

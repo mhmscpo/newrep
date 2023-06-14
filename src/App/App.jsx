@@ -1,25 +1,25 @@
 import React from 'react'
-import FlexV3Grow from './components/layout/FlexV3Grow/FlexV3Grow'
+import Editor from './pages/editor'
 import Header from './components/ui/Header/Header'
 import NavBar from './components/ui/NavBar/NavBar'
-import FlexH1Grow from './components/layout/FlexH1Grow/FlexH1Grow'
-import { MemeSVGViewer, emptyMeme } from 'orsys-tjs-meme'
 import Footer from './components/ui/Footer/Footer'
-import MemeForm from './components/functional/MemeForm/MemeForm'
-import datas from './db/db.json'
+import { Route, Routes, useParams, useLocation } from 'react-router-dom'
+import FlexV3Grow from './components/layout/FlexV3Grow/FlexV3Grow'
 
 const App = () => {
-  console.log(datas)
-
+  console.log({useParams, useLocation})
   return (
+    
     <div className="App">
       <FlexV3Grow>
           <Header/>
           <NavBar/>
-          <FlexH1Grow>
-            <MemeSVGViewer meme={emptyMeme} image={undefined} basePath=''></MemeSVGViewer>
-            <MemeForm images={datas.images}/>
-          </FlexH1Grow>
+          <Routes>
+              <Route path='/' element={<div><h1>Hello</h1></div>}></Route>
+              <Route path='/thumbnail' element={<div>thumbnail</div>}></Route>
+              <Route path='/meme' element={<Editor/>}></Route>             
+              <Route path='/meme/:id' element={<Editor/>}></Route>
+          </Routes>
           <Footer/>
       </FlexV3Grow>
     </div>
