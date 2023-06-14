@@ -1,7 +1,8 @@
 /**
  * Base d'URL du serveur REST
  */
-export const REST_ADR="http://localhoste:5679"
+export const REST_ADR="http://localhost:5679"
+
 /**
  * URI des ressources en focntion du nom de ressource
  */
