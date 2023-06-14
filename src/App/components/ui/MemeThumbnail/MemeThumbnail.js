@@ -10,7 +10,7 @@ const MemeThumbnail = (props) => {
   return (
     <div className={style.MemeThumbnail} data-testid="MemeThumbnail">
       {props.memes.map((varMeme, i) => <div key={"image-"+i}>
-        <Link to={"/meme/"+varMeme.imageId}>
+        <Link to={"/meme/"+varMeme.id}>
         <MemeSVGViewer 
           meme={varMeme}
           image={props.images.find(im=>im.id===varMeme.imageId)}
